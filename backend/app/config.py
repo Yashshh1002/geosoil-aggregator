@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    cors_origins: str = "http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001"
+    cors_origins: str = "*"
     isric_base_url: str = "https://rest.isric.org/soilgrids/v2.0"
     elevation_api_url: str = "https://api.open-elevation.com/api/v1/lookup"
     isric_max_requests_per_minute: int = 4
