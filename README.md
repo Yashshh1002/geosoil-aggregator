@@ -4,6 +4,12 @@ A web application that queries multiple global soil databases and returns a unif
 
 **Enter coordinates or upload a KMZ/KML file** and get: soil type, bulk density, pH, texture (sand/silt/clay %), angle of friction, elevation, and a human-readable description.
 
+## Live URLs
+
+- **Frontend:** https://geosoil-aggregator.vercel.app
+- **Backend API:** https://geosoil-aggregator-production.up.railway.app
+- **Health Check:** https://geosoil-aggregator-production.up.railway.app/api/v1/health
+
 ## Data Sources
 
 - **ISRIC SoilGrids** - Global soil properties at 250m resolution (pH, bulk density, texture, soil classification)
@@ -40,13 +46,19 @@ Frontend runs at http://localhost:3000.
 
 ## Deployment
 
-### Backend (Render / Railway)
+Currently hosted on:
 
-Use the `backend/Dockerfile`. Set environment variables from `.env.example`.
+### Backend — Railway (free tier)
+- Repo: `Yashshh1002/geosoil-aggregator`
+- Builder: Dockerfile
+- Root Directory: `backend`
+- Start Command: `uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}`
+- Env: `CORS_ORIGINS=*`
 
-### Frontend (Vercel)
-
-Deploy the `frontend/` directory. Set `NEXT_PUBLIC_API_URL` to your backend URL.
+### Frontend — Vercel (free tier)
+- Repo: `Yashshh1002/geosoil-aggregator`
+- Root Directory: `frontend`
+- Env: `NEXT_PUBLIC_API_URL=https://geosoil-aggregator-production.up.railway.app`
 
 ## Tech Stack
 
